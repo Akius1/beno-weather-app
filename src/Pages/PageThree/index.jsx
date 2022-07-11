@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { Link } from "react-router-dom";
 import { IconContext } from "react-icons";
 import { FaAngleLeft } from "react-icons/fa";
@@ -6,10 +6,20 @@ import "./pagethree.css";
 import { connect } from "react-redux";
 import moment from "moment";
 import Clock from "../../Components/clockComponent";
+import { getCountryCapitalWeather } from "../../store/actions";
 
-const PageThree = ({ weather_details }) => {
+const PageThree = ({ weather_details, dispatch, ...props }) => {
+  const capital = props.location.state
   let response = weather_details.response;
-  console.log(response)
+
+  useEffect(()=>{
+    if(response === null){
+      dispatch(getCountryCapitalWeather(capital))
+    }
+
+  },[capital])
+
+  
 
   return (
     <div className="page-three-container">
@@ -24,7 +34,7 @@ const PageThree = ({ weather_details }) => {
       </div>
       <div className="detail-display">
         <Clock />
-        <div className="name">{weather_details.response.name}</div>
+        <div className="name">{weather_details?.response?.name}</div>
 
         <div className="image">
           {response.weather[0].main.toLowerCase() === "rain" ? (
@@ -56,16 +66,16 @@ const PageThree = ({ weather_details }) => {
         </div>
 
         <div className="temp">
-          <div>
+          <div className="same-width">
             <i className="wi wi-thermometer"></i>{" "}
           </div>
           <div className="the-same-color">
-            {Math.round(response.main.temp)} °C
+              {Math.round(response.main.temp)} °C
           </div>
         </div>
 
         <div className="sun-rise">
-          <div>
+        <div className="same-width">
             <i className="wi wi-sunrise"></i>{" "}
           </div>{" "}
           <div className="the-same-color">
@@ -74,7 +84,7 @@ const PageThree = ({ weather_details }) => {
         </div>
 
         <div className="sun-set">
-          <div>
+        <div className="same-width">
             <i className="wi wi-sunset"></i>{" "}
           </div>{" "}
           <div className="the-same-color">
