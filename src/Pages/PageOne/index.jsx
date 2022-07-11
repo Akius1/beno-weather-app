@@ -7,22 +7,17 @@ import { connect } from "react-redux";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { getCountryCapitalWeather } from "../../store/actions";
 
-
-
-
-const PageOne = ({selected_capitals, dispatch}) => {
-  const {push} = useHistory();
-  
-
+const PageOne = ({ selected_capitals, dispatch }) => {
+  const { push } = useHistory();
 
   const moveToPageThree = (e) => {
     let capital = e.target.textContent;
-    dispatch(getCountryCapitalWeather(capital))
+    dispatch(getCountryCapitalWeather(capital));
     push({
-      pathname:"/pagethree",
-      state:capital
-    })
-  }
+      pathname: "/pagethree",
+      state: capital,
+    });
+  };
   return (
     <div className="pageone-container">
       <div className="header"></div>
@@ -35,16 +30,17 @@ const PageOne = ({selected_capitals, dispatch}) => {
             </h3>
           ))}
       </div>
-      <Link to={'/capital'} className="footer">
-      <IconContext.Provider value={{ color: "#39FF14", size: "50px" }}>
+      <Link to={"/capital"} className="footer">
+        <IconContext.Provider value={{ color: "#39FF14", size: "50px" }}>
           <span>
             <BsPlusLg />
           </span>
-        </IconContext.Provider></Link>
+        </IconContext.Provider>
+      </Link>
     </div>
   );
 };
 
 export default connect((state) => ({
-  selected_capitals:  state.capital_reducer
- }))(PageOne);
+  selected_capitals: state.capital_reducer,
+}))(PageOne);
