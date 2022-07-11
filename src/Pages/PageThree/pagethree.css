@@ -1,0 +1,81 @@
+.page-three-container {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  padding: 10% 5%;
+}
+
+.headerTwo {
+  position: fixed;
+  height: 60px;
+  width: 100%;
+  background: #040720;
+  top: 0;
+  display: flex;
+  align-items: center;
+}
+
+.detail-display {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3rem;
+}
+.time {
+  font-size: 4rem;
+  padding: 0 0 10px 0;
+  color: #0039a6;
+}
+
+.name {
+  font-size: 3rem;
+}
+.image{
+    padding: 2rem;
+}
+.temp {
+  font-size: 2rem;
+  padding: 1rem;
+  display: flex;
+  column-gap: 4rem;
+  align-items: center;
+  /* justify-content: space-between; */
+}
+/* "react-redux": "^7.2.6", */
+.sun-rise {
+  font-size: 2rem;
+  padding: 1rem;
+  display: flex;
+  column-gap: 4rem;
+  justify-content: space-between;
+}
+
+.sun-set {
+  font-size: 2rem;
+  padding: 1rem;
+  display: flex;
+  column-gap: 4rem;
+  justify-content: space-between;
+
+}
+
+.sun-set i{
+    color: #0039a6;
+}
+
+.sun-rise i{
+    color: #0039a6;
+}
+
+.temp i{
+    color: #0039a6;
+}
+
+.image i {
+  font-size: 4rem;
+  color: #72a0c1;
+}
+.the-same-color{
+    color: #72a0c1;
+}

@@ -1,0 +1,70 @@
+.page-two {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  padding: 10% 5%;
+}
+
+.headerTwo {
+  position: fixed;
+  height: 100px;
+  width: 100%;
+  background: #040720;
+  top: 0;
+  display: flex;
+  align-items: center;
+}
+
+.input-icons {
+  position: relative;
+  width: 100%;
+  display: flex;
+  margin-bottom: 1rem;
+  margin-top: 5rem;
+}
+
+.input-field {
+  width: 100%;
+  padding: 10px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  background: #040720;
+  color: #dfdfe7a4;
+  /* border: 2px solid green; */
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+}
+
+.input-icons i {
+  position: absolute;
+}
+
+.icon {
+  padding: 10px 0;
+  right: 0;
+  color: #dfdfe7a4;
+  text-align: center;
+}
+
+.footerTwo {
+  position: fixed;
+  padding: 20px 0;
+  bottom: 0;
+  width: 80%;
+  height: 50px;
+  text-align: right;
+  opacity: 1;
+  color: "#72A0C1" ;
+  background: #040720;
+}
+
+.footerTwo > p{
+  cursor: pointer;
+  
+  color: "#72A0C1" ;
+}

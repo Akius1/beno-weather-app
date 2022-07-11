@@ -1,0 +1,55 @@
+.pageone-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .header {
+    position: fixed;
+    height: 50px;
+    width: 100%;
+    background: #040720;
+    top: 0;
+  }
+  
+  .list-of-capital {
+    padding: 4rem 0;
+    width: 60%;
+  }
+  
+  h3 {
+    width: 100%;
+    padding: 0.8rem 0;
+    color: #f4f4faee;
+    text-align: center;
+    font-size: 18px;
+    transition: color 2s ease-out 100ms;
+    margin: 0;
+  }
+  
+  h3.grow {
+    transition: all 0.2s ease-in-out;
+  }
+  h3:hover {
+    transform: scale(1.5);
+    cursor: pointer;
+    color: blue;
+  }
+  
+  .footer {
+    position: fixed;
+    padding: 20px 0;
+    bottom: 0;
+    width: 100%;
+    height: 120px;
+    text-align: center;
+    opacity: 1;
+    background: #040720;
+  }
+  
+  span:hover {
+    cursor: pointer;
+  }
+  
