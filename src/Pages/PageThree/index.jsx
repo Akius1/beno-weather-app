@@ -3,20 +3,24 @@ import { Link } from "react-router-dom";
 import { IconContext } from "react-icons";
 import { FaAngleLeft } from "react-icons/fa";
 import "./pagethree.css";
-import { connect } from "react-redux";
+// import { connect } from "react-redux";
 import moment from "moment";
 import Clock from "../../Components/clockComponent";
-import { getCountryCapitalWeather } from "../../store/actions";
+// import { getCountryCapitalWeather } from "../../store/actions";
+import { fetchWeather,selectWeather} from "../../store/slice/weather.slice";
+import { useAppDispatch, useAppSelector } from "../../Components/hooks/hooks";
 
-const PageThree = ({ weather_details, dispatch, ...props }) => {
+const PageThree = ({ ...props }) => {
   const capital = props.location.state
-  let response = weather_details.response;
+  const dispatch = useAppDispatch()
+  const weather = useAppSelector(selectWeather)
 
+  let response = weather;
   useEffect(()=>{
     if(response === null){
-      dispatch(getCountryCapitalWeather(capital))
+      dispatch(fetchWeather(capital))
     }
-
+//eslint-disable-next-line react-hooks/exhaustive-deps
   },[capital])
 
   
@@ -34,7 +38,7 @@ const PageThree = ({ weather_details, dispatch, ...props }) => {
       </div>
       <div className="detail-display">
         <Clock />
-        <div className="name">{weather_details?.response?.name}</div>
+        <div className="name">{weather?.name}</div>
 
         <div className="image">
           {response.weather[0].main.toLowerCase() === "rain" ? (
@@ -96,9 +100,9 @@ const PageThree = ({ weather_details, dispatch, ...props }) => {
   );
 };
 
-// export default PageThree;
+export default PageThree;
 
-export default connect((state) => ({
-  selected_capitals: state.capital_reducer,
-  weather_details: state.weather_reducer,
-}))(PageThree);
+// export default connect((state) => ({
+//   selected_capitals: state.capital_reducer,
+//   weather_details: state.weather_reducer,
+// }))(PageThree);
