@@ -5,14 +5,18 @@ import { IconContext } from "react-icons";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
-import { getCountryCapitalWeather } from "../../store/actions";
+// import { getCountryCapitalWeather } from "../../store/actions";
+import { fetchWeather} from "../../store/slice/weather.slice";
+import { useAppDispatch } from "../../Components/hooks/hooks";
 
-const PageOne = ({ selected_capitals, dispatch }) => {
+const PageOne = ({ selected_capitals }) => {
   const { push } = useHistory();
+
+  const dispatch = useAppDispatch()
 
   const moveToPageThree = (e) => {
     let capital = e.target.textContent;
-    dispatch(getCountryCapitalWeather(capital));
+    dispatch(fetchWeather(capital))
     push({
       pathname: "/pagethree",
       state: capital,
